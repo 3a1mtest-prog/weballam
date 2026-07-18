@@ -1,0 +1,380 @@
+@layer reset, theme, base, components, utilities;
+
+/* Site fonts: Cabinet Grotesk (display), Inter Tight (body), JetBrains Mono
+ * (readouts), Amiri (Arabic display accents). */
+@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Amiri:wght@700&display=swap");
+
+@import "tailwindcss" source(none);
+@source "../src";
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:where([data-theme="default-dark"], [data-theme="default-dark"] *));
+
+@theme {
+  --spacing: 0.25rem;
+}
+
+:root {
+  --radius: 0.625rem;
+}
+
+@layer base {
+  html {
+    background-color: #101743;
+    color: #efede2;
+    color-scheme: dark;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: #101743;
+    color: #efede2;
+  }
+
+  * {
+    border-color: rgba(239, 237, 226, 0.14);
+  }
+}
+
+/* ============================================================
+ * ALLAM GHABEN — site theme (ultramarine stage / bone / vermilion)
+ * ============================================================ */
+:root {
+  --stage: #101743;
+  --stage-deep: #0a0f33;
+  --stage-lift: #1a2260;
+  --ink: #efede2;
+  --ink-dim: rgba(239, 237, 226, 0.62);
+  --hairline: rgba(239, 237, 226, 0.14);
+  --gold: #f03e22;
+  --gold-deep: #b52c15;
+  --font-display: "Cabinet Grotesk", "Inter Tight", sans-serif;
+  --font-body: "Inter Tight", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-arabic: "Amiri", serif;
+}
+
+.site {
+  background-color: var(--stage);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+.site ::selection {
+  background: var(--gold);
+  color: var(--stage-deep);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono-site {
+  font-family: var(--font-mono);
+}
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+.text-ink {
+  color: var(--ink);
+}
+.text-ink-dim {
+  color: var(--ink-dim);
+}
+.text-gold {
+  color: var(--gold);
+}
+.bg-stage {
+  background-color: var(--stage);
+}
+.bg-stage-deep {
+  background-color: var(--stage-deep);
+}
+.bg-gold {
+  background-color: var(--gold);
+}
+.border-hairline {
+  border-color: var(--hairline);
+}
+
+/* Hero name: huge condensed display letters */
+.hero-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.86;
+  color: var(--ink);
+}
+
+/* Underline-arrow inline CTA (hero garment) */
+.cta-inline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-bottom: 0.35rem;
+}
+.cta-inline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--gold);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cta-inline:hover::after {
+  transform: scaleX(0.55);
+}
+.cta-inline .arrow {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cta-inline:hover .arrow {
+  transform: translateX(6px);
+}
+.cta-inline:active {
+  transform: translateY(1px);
+}
+
+/* Framed block CTA (contact garment) */
+.cta-frame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  border: 1px solid var(--hairline);
+  padding: 1.4rem 2.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  overflow: hidden;
+  isolation: isolate;
+}
+.cta-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+.cta-frame:hover::before {
+  transform: scaleX(1);
+}
+.cta-frame:hover {
+  color: var(--stage-deep);
+  border-color: var(--gold);
+}
+.cta-frame:active {
+  transform: scale(0.98);
+}
+
+/* ---- profile: blended video, glass tiles, gradient name, ghost numerals ---- */
+.video-blend {
+  position: relative;
+  border-radius: 1.75rem;
+}
+.video-blend video {
+  display: block;
+  width: 100%;
+  border-radius: 1.75rem;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 9%, black 91%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 9%, black 91%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 9%, black 91%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 9%, black 91%, transparent 100%);
+  mask-composite: intersect;
+}
+.video-blend::before {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  background: radial-gradient(ellipse at center, rgba(42, 72, 255, 0.28), transparent 70%);
+  filter: blur(30px);
+  z-index: -1;
+}
+
+.name-gradient {
+  background: linear-gradient(110deg, var(--ink) 30%, #7f9bff 60%, var(--ink) 85%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: name-shine 6s ease-in-out infinite;
+}
+@keyframes name-shine {
+  0%,
+  100% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+}
+
+.glass-tile {
+  border: 1px solid rgba(239, 237, 226, 0.12);
+  border-radius: 1rem;
+  background: linear-gradient(160deg, rgba(239, 237, 226, 0.05), rgba(42, 72, 255, 0.06));
+  backdrop-filter: blur(8px);
+  padding: 1.05rem 1.25rem;
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.glass-tile:hover {
+  border-color: rgba(127, 155, 255, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(42, 72, 255, 0.22);
+}
+
+.xp-row {
+  border-radius: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  transition: background-color 0.35s ease;
+}
+.xp-row:hover {
+  background: rgba(42, 72, 255, 0.1);
+}
+.xp-num {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3.4rem;
+  line-height: 1;
+  color: rgba(239, 237, 226, 0.1);
+  transition: color 0.35s ease;
+}
+.xp-row:hover .xp-num {
+  color: #7f9bff;
+}
+
+/* ---- instagram 3D card ---- */
+.ig-card {
+  display: block;
+  width: min(92vw, 380px);
+  border-radius: 1.6rem;
+  border: 1px solid rgba(239, 237, 226, 0.14);
+  background: linear-gradient(165deg, rgba(16, 23, 67, 0.82), rgba(6, 9, 34, 0.9));
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 0 90px rgba(42, 72, 255, 0.28);
+  padding: 2rem;
+  color: var(--ink);
+  transition: box-shadow 0.4s ease;
+  will-change: transform;
+}
+.ig-card:hover {
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.55),
+    0 0 130px rgba(42, 72, 255, 0.4);
+}
+.ig-avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  border: 2px solid rgba(127, 155, 255, 0.7);
+  padding: 2px;
+  background: var(--stage-deep);
+}
+
+/* Custom cursor (spectacle tier) */
+.site-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  will-change: transform;
+}
+.site-cursor .ring {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(239, 237, 226, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    background-color 0.25s ease;
+}
+.site-cursor .dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.site-cursor[data-hover="true"] .ring {
+  width: 56px;
+  height: 56px;
+  background: rgba(240, 62, 34, 0.14);
+}
+@media (pointer: coarse) {
+  .site-cursor {
+    display: none;
+  }
+}
+
+/* Hero entrance (on mount, transform-only, screenshot-safe) */
+@keyframes rise-in {
+  from {
+    transform: translateY(60px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.rise-1,
+.rise-2,
+.rise-3 {
+  animation: rise-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.rise-2 {
+  animation-delay: 0.12s;
+}
+.rise-3 {
+  animation-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-1,
+  .rise-2,
+  .rise-3 {
+    animation: none;
+  }
+  .site-cursor {
+    display: none;
+  }
+  .site *,
+  .site *::before,
+  .site *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
