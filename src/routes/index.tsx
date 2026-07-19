@@ -14,8 +14,8 @@ function Index() {
       <main>
         <Hero />
         <Profile />
-        <Playground />
         <Reels />
+        <Playground />
       </main>
     </div>
   );
