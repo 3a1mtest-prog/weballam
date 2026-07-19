@@ -220,6 +220,59 @@ export function Profile() {
   );
 }
 
+/* ---------------------------------------------------------------- reels */
+
+const REELS = [
+  { src: "/assets/reels/reel-1.mp4", n: "01" },
+  { src: "/assets/reels/reel-2.mp4", n: "02" },
+  { src: "/assets/reels/reel-3.mp4", n: "03" },
+];
+
+export function Reels() {
+  return (
+    <section id="reels" className="relative overflow-hidden bg-stage-deep">
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 45% at 50% 0%, rgba(42,72,255,0.18), transparent 70%)",
+        }}
+      />
+      <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <div className="flex items-center gap-4">
+            <span className="h-px w-16 bg-gold" aria-hidden="true" />
+            <span className="font-mono-site text-sm tracking-[0.32em] text-ink">REELS</span>
+            <span className="h-px w-16 bg-gold" aria-hidden="true" />
+          </div>
+          <h2 className="font-display text-5xl font-bold leading-[0.95] tracking-tighter md:text-7xl">
+            Built <span className="name-gradient">in motion.</span>
+          </h2>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {REELS.map((reel) => (
+            <div key={reel.src} className="reel-card group relative">
+              <video
+                src={reel.src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label={`Reel ${reel.n}`}
+              />
+              <span className="reel-num font-mono-site" aria-hidden="true">
+                {reel.n}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------------------------------------------------------- instagram section */
 
 const IG_BIO = ["Gaza · PS", "AI agents & automation Developer", "Hyper-Automation Catalyst", "Software Engineer"];

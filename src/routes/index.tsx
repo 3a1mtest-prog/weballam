@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteEffects } from "../components/site/SiteEffects";
-import { Hero, Nav, Playground, Profile } from "../components/site/sections";
+import { Hero, Nav, Playground, Profile, Reels } from "../components/site/sections";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -15,6 +15,7 @@ function Index() {
         <Hero />
         <Profile />
         <Playground />
+        <Reels />
       </main>
     </div>
   );
