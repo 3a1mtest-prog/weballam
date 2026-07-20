@@ -251,23 +251,15 @@ export function Reels() {
           </h2>
         </div>
 
-        <div className="reels-bento mt-16">
-          <div key={REELS[0].src} className="reel-card reel-hero group relative">
-            <video src={REELS[0].src} autoPlay muted loop playsInline aria-label={`Reel ${REELS[0].n}`} />
-            <span className="reel-num font-mono-site" aria-hidden="true">
-              {REELS[0].n}
-            </span>
-          </div>
-          <div className="reel-side-stack">
-            {REELS.slice(1).map((reel) => (
-              <div key={reel.src} className="reel-card reel-side group relative">
-                <video src={reel.src} autoPlay muted loop playsInline aria-label={`Reel ${reel.n}`} />
-                <span className="reel-num font-mono-site" aria-hidden="true">
-                  {reel.n}
-                </span>
-              </div>
-            ))}
-          </div>
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {REELS.map((reel) => (
+            <div key={reel.src} className="reel-card group relative">
+              <video src={reel.src} autoPlay muted loop playsInline aria-label={`Reel ${reel.n}`} />
+              <span className="reel-num font-mono-site" aria-hidden="true">
+                {reel.n}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

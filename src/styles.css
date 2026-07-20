@@ -267,40 +267,10 @@
   color: #7f9bff;
 }
 
-/* ---- reels (bento: one featured reel + two stacked) ---- */
-.reels-bento {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.reel-side-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.reel-hero {
-  aspect-ratio: 9 / 16;
-}
-.reel-side {
-  aspect-ratio: 3 / 4;
-}
-@media (min-width: 768px) {
-  .reels-bento {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-  .reel-hero {
-    flex: 1.15;
-  }
-  .reel-side-stack {
-    flex: 1;
-  }
-  .reel-side {
-    flex: 1;
-  }
-}
+/* ---- reels ---- */
 .reel-card {
   position: relative;
+  aspect-ratio: 9 / 16;
   border-radius: 1.5rem;
   overflow: hidden;
   border: 1px solid rgba(239, 237, 226, 0.14);
