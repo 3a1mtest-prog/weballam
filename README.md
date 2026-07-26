@@ -90,7 +90,7 @@ src/config/site.ts
 | Mint Green | `#A7FFC8` |
 | Off-White | `#F5F7F6` |
 
-الخطوط: **Cairo** للعربية و**Archivo** للاتينية والأرقام (بديل قريب من DIN المعتمد في دليل الهوية). الشعار مرسوم كـ SVG في `src/components/brand/Logo.tsx` فيبقى حاداً بأي مقاس. الأنماط والتوهجات ونمط العلامة الهندسي معرّفة كأدوات Tailwind في `src/app/globals.css`.
+الخطوط: **Cairo** للعربية و**Archivo** للاتينية والأرقام (بديل قريب من DIN المعتمد في دليل الهوية). الشعار هو ملف `public/brand/logo.png` (PNG بخلفية شفافة)، ويُضبط مساره من `brandMark` في `src/config/site.ts` — راجع `public/brand/README.md` للاستبدال. يوجد شعار متجه احتياطي في `src/components/brand/Logo.tsx` يظهر تلقائياً لو الملف ناقص. الأنماط والتوهجات ونمط العلامة الهندسي معرّفة كأدوات Tailwind في `src/app/globals.css`.
 
 ## البنية
 
