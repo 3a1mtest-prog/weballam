@@ -4,7 +4,7 @@ import { Compass, Gem, HeartHandshake, Target } from "lucide-react";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { Process } from "@/components/home/Process";
-import { LogoMark } from "@/components/brand/Logo";
+import { LogoStacked } from "@/components/brand/Logo";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { site } from "@/config/site";
@@ -98,14 +98,8 @@ export default function AboutPage() {
               <div className="pointer-events-none absolute inset-0 -z-10 bg-brand-pattern opacity-60" />
               <div className="pointer-events-none absolute inset-0 -z-10 animate-pulse-glow bg-[radial-gradient(circle_at_50%_40%,rgba(34,255,136,0.22),transparent_65%)]" />
 
-              <LogoMark className="mx-auto h-auto w-40 drop-shadow-[0_0_46px_rgba(34,255,136,0.45)]" />
+              <LogoStacked markClassName="w-44 drop-shadow-[0_0_46px_rgba(34,255,136,0.45)]" />
 
-              <p className="brand-lockup mt-8 text-center text-base text-offwhite">
-                AL-GHAZAWE
-              </p>
-              <p className="brand-lockup mt-2 text-center text-[0.6rem] text-neon">
-                — Store —
-              </p>
               <p className="mt-6 text-center text-sm leading-relaxed text-fg-muted">
                 {site.tagline}
               </p>

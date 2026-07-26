@@ -1,6 +1,6 @@
 import { CreditCard, ShieldCheck, Zap } from "lucide-react";
 
-import { LogoMark } from "@/components/brand/Logo";
+import { LogoMark, Wordmark } from "@/components/brand/Logo";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
@@ -96,18 +96,14 @@ export function Hero() {
 
             {/* mark */}
             <div className="absolute inset-0 grid animate-float place-items-center">
-              <LogoMark className="h-auto w-[46%] drop-shadow-[0_0_50px_rgba(34,255,136,0.45)]" />
+              <LogoMark className="h-auto w-[52%] drop-shadow-[0_0_50px_rgba(34,255,136,0.45)]" />
             </div>
 
             {/* wordmark under the mark */}
-            <div className="absolute inset-x-0 bottom-[8%] text-center">
-              <p className="brand-lockup text-lg text-offwhite sm:text-xl">
-                AL-GHAZAWE
-              </p>
-              <p className="brand-lockup mt-1.5 text-[0.6rem] text-neon">
-                — Store —
-              </p>
-            </div>
+            <Wordmark
+              size="lg"
+              className="absolute inset-x-0 bottom-[7%] items-center text-center"
+            />
           </div>
         </Reveal>
       </div>
