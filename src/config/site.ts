@@ -20,6 +20,24 @@ export const brandMark = {
   src: "/brand/logo.png" as string | null,
 } as const;
 
+/**
+ * Canonical origin, used for metadataBase, Open Graph URLs, sitemap and robots.
+ *
+ * Set NEXT_PUBLIC_SITE_URL to the real domain in production. Falls back to the
+ * Vercel-provided host so preview deployments emit their own URLs instead of
+ * pointing at the production domain, and finally to the store's domain.
+ */
+function resolveSiteUrl() {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (explicit) return explicit.replace(/\/$/, "");
+
+  const vercelHost =
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+  if (vercelHost) return `https://${vercelHost}`;
+
+  return "https://www.alghazawe.store";
+}
+
 export const site = {
   name: "غزاوي ستور",
   nameEn: "AL-GHAZAWE STORE",
@@ -28,7 +46,7 @@ export const site = {
   taglineEn: "We build your digital presence and turn your ideas into success",
   description:
     "غزاوي ستور — متجرك لبيع يوزرات إنستقرام الرباعية والمميزة، يوزرات سناب شات وتيك توك، حسابات سوشيال ميديا، نقل اليوزرات وزيادة المتابعين، باقات سوا وتطبيقات بلس. نقل آمن، طرق دفع متعددة، وتسليم بيبدأ خلال دقائق.",
-  url: "https://www.alghazawe.store",
+  url: resolveSiteUrl(),
   locale: "ar_PS",
 
   contact: {

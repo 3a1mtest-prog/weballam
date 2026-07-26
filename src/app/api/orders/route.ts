@@ -43,20 +43,30 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, stored: false });
   }
 
-  const { error } = await supabase.from("orders").insert({
-    order_number: payload.order_number,
-    customer_name: payload.customer_name.trim().slice(0, 120),
-    customer_phone: payload.customer_phone.trim().slice(0, 40),
-    customer_contact: payload.customer_contact?.trim().slice(0, 200) ?? null,
-    items: payload.items,
-    total: payload.total,
-    currency: payload.currency,
-    notes: payload.notes?.trim().slice(0, 1000) ?? null,
-    status: "new",
-  });
+  try {
+    const { error } = await supabase.from("orders").insert({
+      order_number: payload.order_number,
+      customer_name: payload.customer_name.trim().slice(0, 120),
+      customer_phone: payload.customer_phone.trim().slice(0, 40),
+      customer_contact: payload.customer_contact?.trim().slice(0, 200) ?? null,
+      items: payload.items,
+      total: payload.total,
+      currency: payload.currency,
+      notes: payload.notes?.trim().slice(0, 1000) ?? null,
+      status: "new",
+    });
 
-  if (error) {
-    console.error(`[order:${payload.order_number}] insert failed`, error.message);
+    if (error) {
+      console.error(
+        `[order:${payload.order_number}] insert failed`,
+        error.message,
+      );
+      return NextResponse.json({ ok: true, stored: false });
+    }
+  } catch (error) {
+    // Unreachable database, timeout, missing table — the WhatsApp hand-off
+    // still has to happen, so never surface this to the customer.
+    console.error(`[order:${payload.order_number}] insert threw`, error);
     return NextResponse.json({ ok: true, stored: false });
   }
 
