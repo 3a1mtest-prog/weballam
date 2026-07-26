@@ -17,7 +17,7 @@
  * broken image in the header.
  */
 export const brandMark = {
-  src: null as string | null,
+  src: "/brand/logo.png" as string | null,
 } as const;
 
 export const site = {
