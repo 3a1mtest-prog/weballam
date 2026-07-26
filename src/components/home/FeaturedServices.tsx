@@ -13,9 +13,9 @@ export function FeaturedServices({ services }: { services: Service[] }) {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="الأكثر طلباً"
-          title="خدمات عملاؤنا بيرجعولها دايماً"
-          highlight="بيرجعولها دايماً"
-          description="الخدمات اللي عليها أعلى طلب وأفضل تقييمات — جاهزة للطلب الآن بضغطة."
+          title="الفئات اللي بتنفد بسرعة"
+          highlight="بتنفد بسرعة"
+          description="أكثر ما بيتطلب عنا — جاهز للحجز الآن بضغطة، والكمية بتتجدد يومياً."
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -18,18 +18,18 @@ export function CtaBanner() {
           <LogoMark className="mx-auto h-16 w-auto drop-shadow-[0_0_36px_rgba(34,255,136,0.5)]" />
 
           <h2 className="mt-8 text-3xl leading-tight font-extrabold text-balance text-offwhite sm:text-4xl md:text-[2.75rem]">
-            جاهز تبدأ؟ <span className="text-gradient-neon">نموّ أعمالك بيبدأ من هنا</span>
+            ما لقيت اللي بدك؟ <span className="text-gradient-neon">احكيلنا وبندبرها</span>
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-pretty text-fg-muted">
-            احكيلنا عن مشروعك وبنرجعلك بخطة واضحة وسعر صريح — الاستشارة الأولى
-            مجانية بالكامل.
+            احكيلنا عن اليوزر أو الحساب اللي بدوّر عليه، وبنبعتلك المتاح عنا
+            بالأسعار — والاستفسار مجاني ومن غير أي التزام.
           </p>
 
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <ButtonLink
               href={waLink(
-                `مرحباً ${site.name} 👋 حابب أبدأ مشروع وأحكي معكم عن التفاصيل`,
+                `مرحباً ${site.name} 👋 بدوّر على يوزر معيّن، بتقدروا تساعدوني؟`,
               )}
               external
               variant="whatsapp"

@@ -1,4 +1,4 @@
-import { ShieldCheck, Sparkles, Zap } from "lucide-react";
+import { CreditCard, ShieldCheck, Zap } from "lucide-react";
 
 import { LogoMark } from "@/components/brand/Logo";
 import { ButtonLink } from "@/components/ui/Button";
@@ -8,8 +8,8 @@ import { site, waLink } from "@/config/site";
 
 const trust = [
   { icon: Zap, label: "تسليم فوري" },
-  { icon: ShieldCheck, label: "ضمان كامل" },
-  { icon: Sparkles, label: "جودة 100%" },
+  { icon: ShieldCheck, label: "نقل آمن ومضمون" },
+  { icon: CreditCard, label: "طرق دفع متعددة" },
 ];
 
 export function Hero() {
@@ -31,23 +31,23 @@ export function Hero() {
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-neon opacity-70" />
                 <span className="relative inline-flex size-2 rounded-full bg-neon" />
               </span>
-              متجرك الرقمي المتكامل — متاحون الآن
+              يوزرات وحسابات وباقات — متاحون الآن
             </span>
           </Reveal>
 
           <Reveal delay={80}>
             <h1 className="mt-6 text-4xl leading-[1.18] font-extrabold text-balance text-offwhite sm:text-5xl lg:text-6xl">
-              نصنع <span className="text-gradient-neon">حضورك الرقمي</span>
+              يوزرك المميز
               <br />
-              ونحوّل أفكارك إلى <span className="text-gradient-neon">نجاح</span>
+              على بُعد <span className="text-gradient-neon">رسالة واتساب</span>
             </h1>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-pretty text-fg-muted sm:text-lg">
-              من زيادة المتابعين واليوزرات المميزة، إلى الاشتراكات وشحن الألعاب
-              وباقات الاتصالات وتصميم هويتك البصرية — كل اللي بيحتاجه مشروعك
-              الرقمي بمكان واحد، بجودة مضمونة وتسليم بيبدأ خلال دقائق.
+              يوزرات إنستقرام رباعية ومميزة، يوزرات سناب شات وتيك توك، حسابات
+              جاهزة بمتابعين، نقل يوزرات وزيادة متابعين، باقات سوا وتطبيقات بلس
+              — نقل ملكية آمن، طرق دفع متعددة، وتسليم بيبدأ خلال دقائق.
             </p>
           </Reveal>
 

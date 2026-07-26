@@ -75,7 +75,7 @@ export function ServicesBrowser({
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="دوّر على خدمة… متابعين، يوزر، شدات، اشتراك"
+                placeholder="دوّر… يوزر رباعي، سناب، تيك توك، سوا، حساب"
                 aria-label="ابحث في الخدمات"
                 className="h-12 w-full rounded-full border border-mint/15 bg-ink-900/70 ps-11 pe-11 text-sm text-offwhite placeholder:text-fg-subtle focus:border-neon/60 focus:outline-none"
               />

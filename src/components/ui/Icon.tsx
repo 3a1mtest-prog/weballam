@@ -1,23 +1,24 @@
 import {
   AtSign,
-  Gamepad2,
-  Palette,
-  ShieldCheck,
+  Ghost,
+  Music2,
   Signal,
+  Smartphone,
   Sparkles,
   TrendingUp,
+  Users,
   type LucideIcon,
 } from "lucide-react";
 
 /** Icons referenced by name from the catalog data. */
 const registry: Record<string, LucideIcon> = {
-  TrendingUp,
   AtSign,
-  Sparkles,
-  Gamepad2,
+  TrendingUp,
+  Ghost,
+  Music2,
+  Users,
   Signal,
-  Palette,
-  ShieldCheck,
+  Smartphone,
 };
 
 export function CategoryIcon({

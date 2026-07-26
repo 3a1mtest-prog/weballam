@@ -20,9 +20,9 @@ export function CategoryGrid({
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="أقسام المتجر"
-          title="كل خدمة بتحتاجها، بقسم واضح"
+          title="كل اللي بتدوّر عليه، بقسم واضح"
           highlight="بقسم واضح"
-          description="سبعة أقسام تغطي حضورك الرقمي من ألفه ليائه — اختار القسم وشوف كل الخدمات وأسعارها مباشرة."
+          description="يوزرات، حسابات، باقات سوا وتطبيقات بلس — اختار القسم وشوف كل الخيارات وأسعارها مباشرة."
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
