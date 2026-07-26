@@ -1,12 +1,16 @@
+"use client";
+
+import { useState } from "react";
+
+import { brandMark } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /**
- * The AG monogram from the brand identity sheet: an angular silver "A" with a
- * sharp apex and flat-cut feet, interlocked with a curved neon "G" whose ring
- * passes behind the A's right leg.
+ * The AG monogram.
  *
- * Drawn as filled vector paths (no strokes) so the apex miter and the foot cuts
- * stay exact, and the mark stays razor-sharp at any size.
+ * Renders the real artwork when `brandMark.src` points at a file in `public/`,
+ * and otherwise falls back to the vector approximation below — which is also
+ * what the monochrome variants always use, since a raster cannot be recoloured.
  */
 
 /* Geometry, in the 160 × 118 viewBox:
@@ -33,6 +37,23 @@ export function LogoMark({
   className?: string;
   variant?: Variant;
 }) {
+  // Falls back to the vector if the file 404s, so a missing drop-in never
+  // leaves a broken image in the header.
+  const [artworkFailed, setArtworkFailed] = useState(false);
+
+  if (variant === "full" && brandMark.src && !artworkFailed) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element -- fixed-size brand
+      // asset sized purely by CSS; next/image adds no value here.
+      <img
+        src={brandMark.src}
+        alt="AL-GHAZAWE STORE"
+        onError={() => setArtworkFailed(true)}
+        className={cn("h-10 w-auto object-contain", className)}
+      />
+    );
+  }
+
   // Gradient ids are stable per variant — identical variants render identically,
   // so sharing the definition across instances is safe.
   const silverId = `ag-silver-${variant}`;

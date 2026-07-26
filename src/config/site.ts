@@ -3,6 +3,23 @@
  * Everything the site shows about "who we are" comes from here.
  */
 
+/**
+ * The logo mark.
+ *
+ * Drop the real artwork in `public/brand/` and point this at it — e.g.
+ * "/brand/logo.svg" or "/brand/logo.png". The file must have a transparent
+ * background (SVG, or PNG with alpha); a solid plate would show as a box on
+ * the dark UI.
+ *
+ * While this is `null` the site uses the built-in vector mark in
+ * `components/brand/Logo.tsx`. If the path is wrong or the file is missing the
+ * component falls back to that same vector, so a bad path never leaves a
+ * broken image in the header.
+ */
+export const brandMark = {
+  src: null as string | null,
+} as const;
+
 export const site = {
   name: "غزاوي ستور",
   nameEn: "AL-GHAZAWE STORE",
