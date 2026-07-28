@@ -5,6 +5,8 @@ import svgr from "vite-plugin-svgr";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+import { siteUrl } from "./scripts/site-url.mjs";
+
 export default defineConfig(() => {
   return {
     // The server bundle runs as a Cloudflare Worker — there is no node_modules
@@ -13,7 +15,9 @@ export default defineConfig(() => {
     // server but throw "No such module" in a Worker. Bundle them all in.
     // (node: builtins stay external — nodejs_compat provides them.)
     ssr: {
-      noExternal: true,
+      // `as const` keeps this the literal `true` Vite's type expects — plain
+      // `true` widens to `boolean` inside this returned object and fails tsc.
+      noExternal: true as const,
       // `cloudflare:workers` is a workerd runtime built-in that exposes the Worker
       // env / bindings (D1 `DB`, R2 `STORAGE`). Like node: builtins it must NOT be
       // bundled; the runtime provides it. (`ssr.external` is typed string[].)
@@ -54,6 +58,11 @@ export default defineConfig(() => {
       // inside effects/handlers, or guarded with `typeof window !== "undefined"`.
       tanstackStart({
         server: { entry: "server" },
+        pages: [{ path: "/" }],
+        prerender: { enabled: true, crawlLinks: true, failOnError: true },
+        // Static build: the sitemap needs an absolute host, resolved at build
+        // time (SITE_URL, else Vercel's project domain).
+        sitemap: { enabled: true, host: siteUrl() },
       }),
       react(),
       tailwindcss(),
