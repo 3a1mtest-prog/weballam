@@ -44,12 +44,16 @@ export const identity = {
   },
 } as const;
 
-/** The four numbered entries on the INDEX slide. Each links to its section. */
+/**
+ * The four numbered entries on the INDEX slide, and the labels on the lit
+ * plates that announce each one. These follow the reference deck exactly —
+ * rename them here and both the index and the plates follow.
+ */
 export const index = [
   { no: "01", label: "ABOUT ME", href: "#about" },
-  { no: "02", label: "PROJECTS", href: "#projects" },
-  { no: "03", label: "TECH STACK", href: "#stack" },
-  { no: "04", label: "CASE STUDIES", href: "#case-studies" },
+  { no: "02", label: "SOCIAL MEDIA", href: "#social-media" },
+  { no: "03", label: "LOGOFOLIO", href: "#logofolio" },
+  { no: "04", label: "BRANDING", href: "#branding" },
 ] as const;
 
 export const about = {

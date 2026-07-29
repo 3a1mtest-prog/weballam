@@ -25,22 +25,26 @@ export default function Page() {
       <Guarantees />
       <Divider />
 
-      <SectionTitle id="projects">PROJECTS</SectionTitle>
+      <SectionTitle id="social-media">
+        SOCIAL
+        <br />
+        MEDIA
+      </SectionTitle>
       <Projects />
 
-      <SectionTitle id="stack">
-        TECH
+      {/* The reference deck sets the closing O of LOGOFOLIO as a violet ring. */}
+      <SectionTitle id="logofolio">
+        LOGO
         <br />
-        STACK
+        FOLI
+        <span className="bg-none text-violet-bright [-webkit-text-fill-color:currentColor]">
+          O
+        </span>
       </SectionTitle>
       <TechStack />
       <Divider />
 
-      <SectionTitle id="case-studies">
-        CASE
-        <br />
-        STUDIES
-      </SectionTitle>
+      <SectionTitle id="branding">BRANDING</SectionTitle>
       <CaseStudies />
 
       <Closing />

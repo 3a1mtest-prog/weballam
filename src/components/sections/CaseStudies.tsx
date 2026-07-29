@@ -20,9 +20,9 @@ export function CaseStudies() {
                 aria-hidden
                 className="chrome font-display text-3xl font-black leading-[0.85] tracking-tight sm:text-5xl"
               >
-                CASE
+                BRAN
                 <br />
-                STUDY
+                DING
               </p>
 
               <div>
