@@ -8,8 +8,8 @@ import { Wordmark } from "@/components/Wordmark";
 export function Closing() {
   const socials = [
     { label: "GitHub", href: identity.links.github },
-    { label: "LinkedIn", href: identity.links.linkedin },
-    { label: "X", href: identity.links.x },
+    { label: "Instagram", href: identity.links.instagram },
+    { label: "allam.qd.je", href: identity.links.site },
   ];
 
   return (

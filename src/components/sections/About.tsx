@@ -13,16 +13,16 @@ export function About() {
 
       <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-6 py-20 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:items-center md:gap-14 md:py-28">
         <div className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-lg md:max-w-none">
-          {identity.portrait ? (
+          {identity.portraitPoster.src ? (
             <Image
-              src={identity.portrait}
+              src={identity.portraitPoster.src}
               alt={`${identity.name}, ${identity.role.toLowerCase()}`}
               fill
               sizes="(min-width: 768px) 32vw, 80vw"
               className="object-cover object-top"
               style={
-                identity.portraitFilter
-                  ? { filter: identity.portraitFilter }
+                identity.portraitPoster.filter
+                  ? { filter: identity.portraitPoster.filter }
                   : undefined
               }
             />

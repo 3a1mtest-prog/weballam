@@ -15,24 +15,32 @@ export const identity = {
   role: "AI & WEB DEVELOPER",
   year: "2026",
   /**
-   * Drop a cut-out portrait (transparent PNG) in `public/` and point here —
-   * e.g. "/portrait.png". While this is null the cover renders the violet
-   * column that the photo would otherwise sit in.
+   * The cover figure — a cut-out on transparency, standing through the
+   * wordmark. Set src to null to fall back to the lit violet column the
+   * type is composed around.
+   *
+   * `filter` walks a photo's lighting round to the deck's hue; the cut-out
+   * is neutral white so it needs none.
    */
-  portrait: null as string | null,
+  portrait: {
+    src: "/assets/hero-cutout.webp" as string | null,
+    filter: null as string | null,
+  },
   /**
-   * The reference shot is lit with a hard blue rim light, which fights the
-   * violet stage. This CSS filter walks those blues round to the deck's
-   * hue. Set to null if you supply a photo that already matches.
+   * The about slide's studio shot. This one is lit with a hard blue rim
+   * light that fights the violet stage, so it gets the hue correction.
    */
-  portraitFilter: "hue-rotate(38deg) saturate(1.08)" as string | null,
+  portraitPoster: {
+    src: "/assets/portrait-poster.webp" as string | null,
+    filter: "hue-rotate(38deg) saturate(1.08)" as string | null,
+  },
   email: "hello@example.com",
   phone: "+970 000 000 000",
   location: "Remote — working worldwide",
   links: {
-    github: "https://github.com/",
-    linkedin: "https://linkedin.com/in/",
-    x: "https://x.com/",
+    github: "https://github.com/3a1mtest-prog",
+    instagram: "https://www.instagram.com/_3a1m/",
+    site: "https://allam.qd.je",
   },
 } as const;
 
@@ -47,8 +55,8 @@ export const index = [
 export const about = {
   heading: "WHO AM I ?",
   paragraphs: [
-    "Hello, I'm Allam, an AI and web developer with over 4 years of experience building fast, accessible products for the browser — and the models and pipelines behind them. I work across the whole stack, from the data model to the last pixel, and I care about how a thing feels to use, not just whether it ships.",
-    "I believe good software is more than working code — it's about clarity, speed, and removing friction between a person and what they came to do. Applied well, AI removes a whole class of that friction. My goal is to turn ideas into interfaces that feel obvious. I'd be happy to collaborate and bring your vision to life.",
+    "Hello, I'm Allam — a software engineer working on intelligent systems, end to end. Generative media, machine learning, automation and agent systems, plus the web apps that put all of it in front of a person. I work across the whole stack, from the dataset to the last pixel.",
+    "I believe good software is more than working code — it's about clarity, speed, and removing friction between a person and what they came to do. Applied well, a model removes a whole class of that friction. My goal is to turn ideas into systems that feel obvious to use. I'd be happy to collaborate and bring your vision to life.",
   ],
 } as const;
 
@@ -59,14 +67,14 @@ export const services = [
       "Fast, responsive sites and web apps — built to convert, built to last.",
   },
   {
-    title: "AI\nENGINEERING",
+    title: "MACHINE\nLEARNING",
     blurb:
-      "Retrieval, agents and model integration wired into products people actually use.",
+      "Training and fine-tuning, datasets to deployment. Weights that behave in the real world.",
   },
   {
-    title: "AUTOMATION\n& INTEGRATION",
+    title: "AGENTS &\nAUTOMATION",
     blurb:
-      "Pipelines and internal tools that take the repetitive work off your team's desk.",
+      "Tools, memory, guardrails. Pipelines that plan, act, report back — and erase manual work.",
   },
 ] as const;
 

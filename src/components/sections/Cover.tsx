@@ -12,22 +12,25 @@ export function Cover() {
 
   return (
     <header className="panel-violet relative flex min-h-[92vh] flex-col justify-center overflow-hidden px-6 pb-14 pt-24">
-      {/* The portrait column, centred behind the wordmark. */}
+      {/* The figure, standing on the baseline through the middle of the word.
+          Sized off the section's height rather than its width, so on a narrow
+          viewport it still rises into the wordmark instead of stranding
+          itself below the type. */}
       <div
-        aria-hidden={!identity.portrait}
-        className="pointer-events-none absolute inset-y-0 left-1/2 z-10 w-[46vw] max-w-sm -translate-x-1/2"
+        aria-hidden={!identity.portrait.src}
+        className="pointer-events-none absolute bottom-0 left-1/2 z-10 h-[68%] w-full max-w-[22rem] -translate-x-1/2 sm:h-[82%] sm:max-w-[30rem]"
       >
-        {identity.portrait ? (
+        {identity.portrait.src ? (
           <Image
-            src={identity.portrait}
+            src={identity.portrait.src}
             alt={`${identity.name}, ${identity.role.toLowerCase()}`}
             fill
             priority
-            sizes="46vw"
-            className="object-cover object-top"
+            sizes="(min-width: 640px) 30rem, 22rem"
+            className="object-contain object-bottom"
             style={
-              identity.portraitFilter
-                ? { filter: identity.portraitFilter }
+              identity.portrait.filter
+                ? { filter: identity.portrait.filter }
                 : undefined
             }
           />
