@@ -7,7 +7,9 @@
 
 export const identity = {
   /** Shown large on the cover, in the divider bars, and on the closing slide. */
-  name: "ALLAM",
+  name: "ALLAM GHABEN",
+  /** The short form used by the signature wordmark. */
+  shortName: "allam",
   role: "WEB DEVELOPER",
   year: "2026",
   /**

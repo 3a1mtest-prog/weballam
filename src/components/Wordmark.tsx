@@ -9,7 +9,7 @@ export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <span className={`inline-flex flex-col items-center leading-none ${className}`}>
       <span className="font-script text-xl tracking-tight text-silver sm:text-2xl">
-        {identity.name.toLowerCase()}
+        {identity.shortName}
       </span>
       <span className="mt-0.5 text-[0.5rem] tracking-[0.32em] text-steel">
         {identity.role.split(" ")[0]}

@@ -55,7 +55,7 @@ export function Cover() {
         </p>
 
         <div className="relative z-20 mt-8 flex items-end justify-between gap-4 text-[0.6rem] font-bold tracking-[0.22em] text-white sm:text-sm sm:tracking-[0.3em]">
-          <span>{identity.name} DESIGN</span>
+          <span>{identity.name}</span>
           <span className="text-right">{identity.role}</span>
         </div>
       </div>
