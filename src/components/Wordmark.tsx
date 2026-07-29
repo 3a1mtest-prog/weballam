@@ -12,7 +12,7 @@ export function Wordmark({ className = "" }: { className?: string }) {
         {identity.shortName}
       </span>
       <span className="mt-0.5 text-[0.5rem] tracking-[0.32em] text-steel">
-        {identity.role.split(" ")[0]}
+        {identity.markSub}
       </span>
     </span>
   );

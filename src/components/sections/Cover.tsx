@@ -25,6 +25,11 @@ export function Cover() {
             priority
             sizes="46vw"
             className="object-cover object-top"
+            style={
+              identity.portraitFilter
+                ? { filter: identity.portraitFilter }
+                : undefined
+            }
           />
         ) : (
           <div className="h-full w-full bg-gradient-to-b from-violet-bright/70 via-violet-core/60 to-transparent [mask-image:radial-gradient(60%_70%_at_50%_45%,#000_35%,transparent_75%)]" />

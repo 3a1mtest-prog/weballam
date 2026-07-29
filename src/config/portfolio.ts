@@ -10,7 +10,9 @@ export const identity = {
   name: "ALLAM GHABEN",
   /** The short form used by the signature wordmark. */
   shortName: "allam",
-  role: "WEB DEVELOPER",
+  /** Small caps set under the signature. */
+  markSub: "AI · WEB",
+  role: "AI & WEB DEVELOPER",
   year: "2026",
   /**
    * Drop a cut-out portrait (transparent PNG) in `public/` and point here —
@@ -18,6 +20,12 @@ export const identity = {
    * column that the photo would otherwise sit in.
    */
   portrait: null as string | null,
+  /**
+   * The reference shot is lit with a hard blue rim light, which fights the
+   * violet stage. This CSS filter walks those blues round to the deck's
+   * hue. Set to null if you supply a photo that already matches.
+   */
+  portraitFilter: "hue-rotate(38deg) saturate(1.08)" as string | null,
   email: "hello@example.com",
   phone: "+970 000 000 000",
   location: "Remote — working worldwide",
@@ -39,8 +47,8 @@ export const index = [
 export const about = {
   heading: "WHO AM I ?",
   paragraphs: [
-    "Hello, I'm Allam, a web developer with over 4 years of experience building fast, accessible products for the browser. I work across the whole stack — from the data model to the last pixel — and I care about how a thing feels to use, not just whether it ships.",
-    "I believe good software is more than working code — it's about clarity, speed, and removing friction between a person and what they came to do. My goal is to turn ideas into interfaces that feel obvious. I'd be happy to collaborate and bring your vision to life.",
+    "Hello, I'm Allam, an AI and web developer with over 4 years of experience building fast, accessible products for the browser — and the models and pipelines behind them. I work across the whole stack, from the data model to the last pixel, and I care about how a thing feels to use, not just whether it ships.",
+    "I believe good software is more than working code — it's about clarity, speed, and removing friction between a person and what they came to do. Applied well, AI removes a whole class of that friction. My goal is to turn ideas into interfaces that feel obvious. I'd be happy to collaborate and bring your vision to life.",
   ],
 } as const;
 
@@ -48,17 +56,17 @@ export const services = [
   {
     title: "WEB\nDEVELOPMENT",
     blurb:
-      "Building fast, responsive sites and web apps that convert visitors into customers.",
+      "Fast, responsive sites and web apps — built to convert, built to last.",
   },
   {
-    title: "FRONTEND\nENGINEERING",
+    title: "AI\nENGINEERING",
     blurb:
-      "Design systems, component libraries and interfaces that stay consistent as a product grows.",
+      "Retrieval, agents and model integration wired into products people actually use.",
   },
   {
-    title: "PERFORMANCE\n& SEO",
+    title: "AUTOMATION\n& INTEGRATION",
     blurb:
-      "Core Web Vitals, structured data and rendering strategy — so the work actually gets found.",
+      "Pipelines and internal tools that take the repetitive work off your team's desk.",
   },
 ] as const;
 
@@ -96,12 +104,35 @@ export type ProjectGroup = {
 };
 
 /**
- * PROJECTS — grids of three, one group per client, each group closed by a
+ * PROJECTS — grids of three, one group per field, each group closed by a
  * divider bar. Add or remove groups freely; the layout absorbs it.
  */
 export const projectGroups: ProjectGroup[] = [
   {
-    client: "COMMERCE",
+    client: "AI PRODUCTS",
+    projects: [
+      {
+        name: "ASK THE DOCS",
+        tag: "RAG · pgvector",
+        summary:
+          "Retrieval assistant over a 12,000-page manual set — answers cite the exact page they came from.",
+      },
+      {
+        name: "TRIAGE AGENT",
+        tag: "Tool use · Queues",
+        summary:
+          "Support agent that reads a ticket, pulls the account record, and drafts the reply for a human to send.",
+      },
+      {
+        name: "VISION SORT",
+        tag: "PyTorch · ONNX",
+        summary:
+          "On-device image classifier for a warehouse line, quantised to run on the hardware already installed.",
+      },
+    ],
+  },
+  {
+    client: "WEB PLATFORMS",
     projects: [
       {
         name: "STOREFRONT",
@@ -110,33 +141,10 @@ export const projectGroups: ProjectGroup[] = [
           "A headless storefront with instant search, cart persistence and a checkout that survives a dropped connection.",
       },
       {
-        name: "ORDER DESK",
-        tag: "React · Postgres",
-        summary:
-          "Internal fulfilment dashboard replacing a spreadsheet — live order state for a team of twelve.",
-      },
-      {
-        name: "PRICE ENGINE",
-        tag: "TypeScript · Redis",
-        summary:
-          "Rules-driven pricing service with per-region overrides and an audit trail on every change.",
-      },
-    ],
-  },
-  {
-    client: "PLATFORM",
-    projects: [
-      {
         name: "DOCS PORTAL",
         tag: "MDX · Algolia",
         summary:
           "Versioned documentation site with typed code samples and search that lands on the exact heading.",
-      },
-      {
-        name: "AUTH GATEWAY",
-        tag: "Node · OAuth",
-        summary:
-          "Single sign-on across four internal tools, with session revocation that propagates in seconds.",
       },
       {
         name: "USAGE METRICS",
@@ -147,25 +155,25 @@ export const projectGroups: ProjectGroup[] = [
     ],
   },
   {
-    client: "BRAND SITES",
+    client: "AUTOMATION",
     projects: [
       {
-        name: "LAUNCH PAGE",
-        tag: "Motion · SSG",
+        name: "ORDER DESK",
+        tag: "React · Postgres",
         summary:
-          "A launch campaign that held 40k concurrent visitors on static hosting without a single error.",
+          "Internal fulfilment dashboard replacing a spreadsheet — live order state for a team of twelve.",
       },
       {
-        name: "EDITORIAL",
-        tag: "CMS · ISR",
+        name: "REPORT ENGINE",
+        tag: "Python · Cron",
         summary:
-          "Magazine build where editors publish in one click and the page is live before they close the tab.",
+          "Nightly pipeline that assembles, renders and delivers what used to be a two-day manual report.",
       },
       {
-        name: "BOOKING FLOW",
-        tag: "Forms · A11y",
+        name: "INBOX ROUTER",
+        tag: "LLM · Webhooks",
         summary:
-          "Four-step reservation flow, keyboard-complete and screen-reader tested end to end.",
+          "Classifies inbound mail and routes it to the right queue, with a confidence floor that defers to a human.",
       },
     ],
   },
@@ -181,16 +189,16 @@ export const stack = [
   "Next.js",
   "Node",
   "Tailwind",
+  "Python",
+  "PyTorch",
+  "LangChain",
   "Postgres",
+  "pgvector",
   "Supabase",
-  "Prisma",
-  "GraphQL",
-  "Vitest",
   "Playwright",
   "Docker",
   "AWS",
   "Vercel",
-  "Figma",
   "Git",
 ] as const;
 
@@ -209,20 +217,20 @@ export type CaseStudy = {
  */
 export const caseStudies: CaseStudy[] = [
   {
+    name: "ASK THE DOCS",
+    accent: "#a855f7",
+    body: "A retrieval assistant built over a manufacturer's manual set — twelve thousand pages across four languages. Chunks are embedded on ingest and reranked at query time, and every answer carries the page it was drawn from, so a technician can verify it before acting. Questions the index cannot support are refused rather than guessed at.",
+    tiles: ["Query", "Citations", "Ingest", "Eval harness"],
+  },
+  {
     name: "STOREFRONT",
     accent: "#22c55e",
-    body: "Storefront is a headless commerce build for a retailer moving off a hosted platform. The catalogue is statically generated and revalidated on write, so pages are served from the edge while stock stays accurate. Checkout was rebuilt around resumable sessions — an interrupted purchase picks up exactly where it stopped.",
+    body: "A headless commerce build for a retailer moving off a hosted platform. The catalogue is statically generated and revalidated on write, so pages are served from the edge while stock stays accurate. Checkout was rebuilt around resumable sessions — an interrupted purchase picks up exactly where it stopped.",
     tiles: ["Catalogue", "Product page", "Checkout", "Mobile"],
   },
   {
-    name: "DOCS PORTAL",
-    accent: "#38bdf8",
-    body: "A documentation platform for a developer tool with four supported versions. Content is authored in MDX, type-checked against the live SDK, and indexed per heading — so search returns the paragraph that answers the question rather than the page that mentions it.",
-    tiles: ["Search", "Versioning", "Code samples", "Dark mode"],
-  },
-  {
     name: "USAGE METRICS",
-    accent: "#f97316",
+    accent: "#38bdf8",
     body: "Customer-facing analytics layered over an event pipeline handling billions of rows. Queries are pre-aggregated on ingest and streamed to the client progressively, keeping the first meaningful chart under a second even on the widest date ranges.",
     tiles: ["Overview", "Drill-down", "Export", "Alerts"],
   },

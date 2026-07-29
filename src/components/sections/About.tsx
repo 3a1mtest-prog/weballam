@@ -20,6 +20,11 @@ export function About() {
               fill
               sizes="(min-width: 768px) 32vw, 80vw"
               className="object-cover object-top"
+              style={
+                identity.portraitFilter
+                  ? { filter: identity.portraitFilter }
+                  : undefined
+              }
             />
           ) : (
             <div
