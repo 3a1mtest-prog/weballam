@@ -1,14 +1,49 @@
+import { Cover } from "@/components/sections/Cover";
+import { IndexSlide } from "@/components/sections/IndexSlide";
+import { About } from "@/components/sections/About";
+import { Services } from "@/components/sections/Services";
+import { Guarantees } from "@/components/sections/Guarantees";
+import { Projects } from "@/components/sections/Projects";
+import { TechStack } from "@/components/sections/TechStack";
+import { CaseStudies } from "@/components/sections/CaseStudies";
+import { Closing } from "@/components/sections/Closing";
+import { Divider } from "@/components/Divider";
+import { SectionTitle } from "@/components/SectionTitle";
+
+/**
+ * The deck, read top to bottom: cover, contents, then the four numbered
+ * sections, each announced by its own lit plate and closed by a divider.
+ */
 export default function Page() {
   return (
-    <main className="mx-auto flex min-h-dvh max-w-2xl flex-col justify-center gap-4 px-6">
-      <h1 className="text-3xl font-semibold tracking-tight">weballam</h1>
-      <p className="text-neutral-600 dark:text-neutral-400">
-        Clean slate. Start building in{" "}
-        <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-sm dark:bg-neutral-800">
-          src/app/page.tsx
-        </code>
-        .
-      </p>
+    <main>
+      <Cover />
+      <IndexSlide />
+
+      <About />
+      <Services />
+      <Guarantees />
+      <Divider />
+
+      <SectionTitle id="projects">PROJECTS</SectionTitle>
+      <Projects />
+
+      <SectionTitle id="stack">
+        TECH
+        <br />
+        STACK
+      </SectionTitle>
+      <TechStack />
+      <Divider />
+
+      <SectionTitle id="case-studies">
+        CASE
+        <br />
+        STUDIES
+      </SectionTitle>
+      <CaseStudies />
+
+      <Closing />
     </main>
   );
 }
